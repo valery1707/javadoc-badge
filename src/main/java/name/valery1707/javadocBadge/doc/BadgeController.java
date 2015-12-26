@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -19,14 +20,14 @@ import java.util.Optional;
 @Controller
 @RequestMapping("doc")
 public class BadgeController {
-	@Value("${badge.javadocURL}")
-	private String javadocURL;
-
 	@Value("${badge.shieldsURL}")
 	private String shieldsBaseURL;
 
 	@Value("${badge.defaultColor}")
 	private String badgeColor;
+
+	@Inject
+	private VersionCache versionCache;
 
 	@RequestMapping(value = "{groupId}/{artifactId}/badge.{ext}", method = RequestMethod.GET)
 	//todo version?
@@ -38,7 +39,7 @@ public class BadgeController {
 			@RequestParam("style") Optional<String> style,
 			@RequestParam("color") Optional<String> color
 	) {
-		String version = "0.0.0-SNAPSHOT";//todo Detect actual version
+		String version = versionCache.getActualVersion(groupId, artifactId);
 		UriComponentsBuilder shieldURIBuilder = ServletUriComponentsBuilder.fromHttpUrl(shieldsBaseURL);
 		shieldURIBuilder.path("{subject}-{version}-{color}.{ext}");
 		if (style.isPresent()) {

@@ -45,6 +45,12 @@ dependencies {
     compile 'javax.servlet:javax.servlet-api:3.1.0'
     runtime 'org.eclipse.jetty:jetty-webapp:9.3.6.v20151106'
 
+    //Caching library
+    compile 'com.github.ben-manes.caffeine:caffeine:2.0.3'
+
+    //HTTP client
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
+
     //Useful annotations
     compile 'javax.inject:javax.inject:1'
 
