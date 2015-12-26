@@ -1,11 +1,13 @@
 package name.valery1707.javadocBadge.status;
 
+import name.valery1707.javadocBadge.doc.VersionCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
@@ -19,6 +21,9 @@ public class StatusRepository {
 
 	@Value("${implementationVendor}")
 	private String implementationVendor;
+
+	@Inject
+	private VersionCache versionCache;
 
 	private ZonedDateTime startAt;
 	private String version;
@@ -49,6 +54,6 @@ public class StatusRepository {
 	}
 
 	public Status getStatus() {
-		return new Status(version, Duration.between(startAt, ZonedDateTime.now()));
+		return new Status(version, Duration.between(startAt, ZonedDateTime.now()), versionCache.getStats());
 	}
 }

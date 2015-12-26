@@ -2,6 +2,7 @@ package name.valery1707.javadocBadge.doc;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
+import com.github.benmanes.caffeine.cache.stats.CacheStats;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -31,6 +32,7 @@ public class VersionCache {
 		versions = Caffeine.newBuilder()
 				.expireAfterWrite(2, TimeUnit.HOURS)//todo Configure
 				.maximumSize(10_000)
+				.recordStats()
 				.build(this::findActualVersion);//todo Use async
 		client = new OkHttpClient();
 		client.setFollowRedirects(false);
@@ -63,5 +65,9 @@ public class VersionCache {
 
 	public String getActualVersion(String groupId, String artifactId) {
 		return versions.get(new SimpleEntry<>(groupId, artifactId));
+	}
+
+	public CacheStats getStats() {
+		return versions.stats();
 	}
 }
