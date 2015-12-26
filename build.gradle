@@ -22,6 +22,7 @@ jar {
                 'Implementation-Version': version,
                 'Implementation-Vendor': 'valery1707'
     }
+    version = null
 }
 
 apply plugin: 'spring-boot'
