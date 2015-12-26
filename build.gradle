@@ -1,0 +1,19 @@
+group 'name.valery1707'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+project.sourceCompatibility = '1.8'
+project.targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.+'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}
