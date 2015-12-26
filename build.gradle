@@ -16,6 +16,13 @@ buildscript {
 apply plugin: 'java'
 project.sourceCompatibility = '1.8'
 project.targetCompatibility = '1.8'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Javadoc.io badge',
+                'Implementation-Version': version,
+                'Implementation-Vendor': 'valery1707'
+    }
+}
 
 apply plugin: 'spring-boot'
 
