@@ -1,4 +1,4 @@
-package name.valery1707.testSpringRedirect.status;
+package name.valery1707.javadocBadge.status;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

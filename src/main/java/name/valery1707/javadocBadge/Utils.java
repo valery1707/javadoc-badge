@@ -1,4 +1,4 @@
-package name.valery1707.testSpringRedirect;
+package name.valery1707.javadocBadge;
 
 import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;

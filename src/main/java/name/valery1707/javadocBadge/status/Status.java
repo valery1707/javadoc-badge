@@ -1,10 +1,10 @@
-package name.valery1707.testSpringRedirect.status;
+package name.valery1707.javadocBadge.status;
 
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-import static name.valery1707.testSpringRedirect.Utils.toJson;
+import static name.valery1707.javadocBadge.Utils.toJson;
 
 public class Status {
 

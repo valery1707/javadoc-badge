@@ -1,4 +1,4 @@
-package name.valery1707.testSpringRedirect.status;
+package name.valery1707.javadocBadge.status;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.inject.Inject;
 
-import static name.valery1707.testSpringRedirect.Utils.buildJsonResponse;
+import static name.valery1707.javadocBadge.Utils.buildJsonResponse;
 
 @Controller
 @RequestMapping("/status")
