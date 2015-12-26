@@ -1,16 +1,46 @@
 group 'name.valery1707'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
-project.sourceCompatibility = '1.8'
-project.targetCompatibility = '1.8'
-
 repositories {
     mavenCentral()
 }
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+project.sourceCompatibility = '1.8'
+project.targetCompatibility = '1.8'
+
+apply plugin: 'spring-boot'
 
 dependencies {
+    //Logging
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    runtime 'org.slf4j:jcl-over-slf4j:1.7.13'
+    runtime 'ch.qos.logback:logback-classic:1.1.3'
+
+    //Spring
+    compile "org.springframework:spring-context:4.2.4.RELEASE"
+    compile "org.springframework:spring-web:4.2.4.RELEASE"
+    //todo Can remove mvc-support?
+    compile "org.springframework:spring-webmvc:4.2.4.RELEASE"
+    compile "org.springframework.boot:spring-boot:1.3.1.RELEASE"
+    compile "org.springframework.boot:spring-boot-autoconfigure:1.3.1.RELEASE"
+
+    //Servlet container
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    runtime 'org.eclipse.jetty:jetty-webapp:9.3.6.v20151106'
+
+    //Useful annotations
+    compile 'javax.inject:javax.inject:1'
+
+    //Testing
     testCompile 'junit:junit:4.+'
 }
 
