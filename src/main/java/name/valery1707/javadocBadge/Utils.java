@@ -38,7 +38,7 @@ public final class Utils {
 					.map(entry -> toJson(entry.getKey().toString()) + ": " + toJson(entry.getValue()))
 					.collect(Collectors.joining(", ", "{", "}"));
 		} else {
-			return value.toString();
+			return toJson(value.toString());
 		}
 	}
 }
