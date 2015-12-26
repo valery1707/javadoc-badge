@@ -2,6 +2,7 @@ package name.valery1707.javadocBadge.status;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -15,6 +16,9 @@ import java.util.jar.Manifest;
 @Repository
 public class StatusRepository {
 	private static final Logger LOG = LoggerFactory.getLogger(StatusRepository.class);
+
+	@Value("${implementationVendor}")
+	private String implementationVendor;
 
 	private ZonedDateTime startAt;
 	private String version;
@@ -33,7 +37,7 @@ public class StatusRepository {
 				URL url = resources.nextElement();
 				Manifest manifest = new Manifest(url.openStream());
 				String vendor = manifest.getMainAttributes().getValue("Implementation-Vendor");
-				if ("valery1707".equals(vendor)) {
+				if (implementationVendor.equals(vendor)) {
 					return manifest.getMainAttributes().getValue("Implementation-Version");
 				}
 			}
