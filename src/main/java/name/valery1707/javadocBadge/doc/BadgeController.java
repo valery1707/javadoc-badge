@@ -1,5 +1,6 @@
 package name.valery1707.javadocBadge.doc;
 
+import name.valery1707.javadocBadge.version.VersionCache;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
