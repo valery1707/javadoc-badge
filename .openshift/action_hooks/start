@@ -8,4 +8,5 @@ java -jar build/libs/javadoc-badge.jar \
   --server.address=${OPENSHIFT_DIY_IP} \
   --server.port=${OPENSHIFT_DIY_PORT} \
   --server.error.whitelabel.enabled=false \
+  --logging.path=${OPENSHIFT_DIY_LOG_DIR} \
   |& /usr/bin/logshifter &
