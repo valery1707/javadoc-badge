@@ -30,13 +30,13 @@ else
 	exit 1
 fi
 
-update_version ${version_cur} ${version_new} build.gradle
+update_version ${version_cur} ${version_cur} build.gradle
 git add build.gradle
 git commit --quiet -m "Release version ${version_cur}"
 git tag -a -m "Release version ${version_cur}" v${version_cur}
 git push openshift master
 
-update_version ${version_new} ${version_new}-SNAPSHOT build.gradle
+update_version ${version_cur} ${version_new}-SNAPSHOT build.gradle
 git add build.gradle
 git commit --quiet -m "Start working on snapshot version ${version_new}"
 
