@@ -4,4 +4,4 @@ export JAVA_HOME=/etc/alternatives/java_sdk_1.8.0
 export PATH=$JAVA_HOME/bin:$PATH
 
 cd ${OPENSHIFT_REPO_DIR}
-java -jar build/libs/javadoc-badge.jar --server.port=8080
+java -jar build/libs/javadoc-badge.jar --server.port=8080 --server.error.whitelabel.enabled=false
