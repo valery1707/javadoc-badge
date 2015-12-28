@@ -1,17 +1,18 @@
 package name.valery1707.javadocBadge.status;
 
 import com.github.benmanes.caffeine.cache.stats.CacheStats;
+import com.google.gson.annotations.JsonAdapter;
+import name.valery1707.javadocBadge.ToStringTypeAdapter;
 
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static name.valery1707.javadocBadge.Utils.toJson;
-
 public class Status {
 
 	private final String version;
+	@JsonAdapter(ToStringTypeAdapter.class)
 	private final Duration uptime;
 	private final Map<String, Object> cache = new TreeMap<>();
 	private final Map<String, Long> memory = new HashMap<>();
@@ -52,15 +53,5 @@ public class Status {
 
 	public Map<String, Long> getMemory() {
 		return memory;
-	}
-
-	@Override
-	public String toString() {
-		Map<String, Object> presentation = new HashMap<>(4);
-		presentation.put("version", getVersion());
-		presentation.put("uptime", getUptime());
-		presentation.put("cache", getCache());
-		presentation.put("memory", getMemory());
-		return toJson(presentation);
 	}
 }
