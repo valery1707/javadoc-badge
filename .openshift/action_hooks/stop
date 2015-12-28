@@ -1,0 +1,5 @@
+#!/bin/sh
+
+killall --verbose java
+
+exit 0
