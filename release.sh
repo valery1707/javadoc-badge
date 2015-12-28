@@ -18,7 +18,7 @@ if [ "x${version_new}" = "x" ] ; then
 	version_new=${version_1}.${version_2}.$[${version_3} + 1]
 fi
 
-echo "Updating project version: ${version_cur} -> ${version_new}"
+echo "Updating project version. Release ${version_cur} and prepare to ${version_new}"
 echo "New version is correct? (y/N)"
 read x
 if [ "$x" = "y" ] ; then
