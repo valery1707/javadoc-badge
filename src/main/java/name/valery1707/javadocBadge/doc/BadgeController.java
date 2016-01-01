@@ -27,6 +27,9 @@ public class BadgeController {
 	@Value("${badge.defaultColor}")
 	private String badgeColor;
 
+	@Value("${badge.subject}")
+	private String badgeSubject;
+
 	@Value("${badge.version.prefix}")
 	private String badgeVersionPrefix;
 
@@ -45,6 +48,7 @@ public class BadgeController {
 			@PathVariable("ext") String ext,
 			@RequestParam("style") Optional<String> style,
 			@RequestParam("color") Optional<String> color
+			, @RequestParam("subject") Optional<String> subject
 			, @RequestParam("prefix") Optional<String> prefix
 			, @RequestParam("suffix") Optional<String> suffix
 	) {
@@ -56,7 +60,7 @@ public class BadgeController {
 			shieldURIBuilder.queryParam("style", style.orElse(null));
 		}
 		Map<String, String> params = new HashMap<>(4);
-		params.put("subject", "javadoc");
+		params.put("subject", badgePart(subject.orElse(badgeSubject)));
 		params.put("version", badgePart(version));
 		params.put("color", badgePart(color.orElse(badgeColor)));
 		params.put("ext", ext);
