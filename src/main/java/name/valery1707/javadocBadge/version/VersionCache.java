@@ -47,4 +47,8 @@ public class VersionCache {
 	public CacheStats getStats() {
 		return versions.stats();
 	}
+
+	public long estimatedSize() {
+		return versions.estimatedSize();
+	}
 }

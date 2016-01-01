@@ -17,7 +17,7 @@ public class Status {
 	private final Map<String, Object> cache = new TreeMap<>();
 	private final Map<String, Long> memory = new HashMap<>();
 
-	public Status(String version, Duration uptime, CacheStats stats) {
+	public Status(String version, Duration uptime, CacheStats stats, long cacheEstimatedSize) {
 		this.version = version;
 		this.uptime = uptime;
 		Runtime runtime = Runtime.getRuntime();
@@ -37,6 +37,7 @@ public class Status {
 		this.cache.put("missRate", stats.missRate());
 		this.cache.put("requestCount", stats.requestCount());
 		this.cache.put("totalLoadTime", stats.totalLoadTime());
+		this.cache.put("estimatedSize", cacheEstimatedSize);
 	}
 
 	public String getVersion() {

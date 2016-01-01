@@ -54,6 +54,6 @@ public class StatusRepository {
 	}
 
 	public Status getStatus() {
-		return new Status(version, Duration.between(startAt, ZonedDateTime.now()), versionCache.getStats());
+		return new Status(version, Duration.between(startAt, ZonedDateTime.now()), versionCache.getStats(), versionCache.estimatedSize());
 	}
 }
