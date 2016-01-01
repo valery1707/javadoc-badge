@@ -12,6 +12,8 @@ URL: `http://javadocbadge-valery1707.rhcloud.com/doc/${groupId}/${artifactId}/ba
 Also exists some optional params:
 * `style` - supported styles from [Shields.io](http://shields.io/#styles)
 * `color` - supported colors from [Shields.io](http://shields.io/#your-badge)
+* `prefix` - prefix for version in badge
+* `suffix` - suffix for version in badge
 
 ##### Examples
 

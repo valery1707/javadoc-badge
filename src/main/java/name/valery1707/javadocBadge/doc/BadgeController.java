@@ -27,6 +27,12 @@ public class BadgeController {
 	@Value("${badge.defaultColor}")
 	private String badgeColor;
 
+	@Value("${badge.version.prefix}")
+	private String badgeVersionPrefix;
+
+	@Value("${badge.version.suffix}")
+	private String badgeVersionSuffix;
+
 	@Inject
 	private VersionCache versionCache;
 
@@ -39,8 +45,11 @@ public class BadgeController {
 			@PathVariable("ext") String ext,
 			@RequestParam("style") Optional<String> style,
 			@RequestParam("color") Optional<String> color
+			, @RequestParam("prefix") Optional<String> prefix
+			, @RequestParam("suffix") Optional<String> suffix
 	) {
 		String version = versionCache.getActualVersion(groupId, artifactId);
+		version = prefix.orElse(badgeVersionPrefix) + version + suffix.orElse(badgeVersionSuffix);
 		UriComponentsBuilder shieldURIBuilder = ServletUriComponentsBuilder.fromHttpUrl(shieldsBaseURL);
 		shieldURIBuilder.path("{subject}-{version}-{color}.{ext}");
 		if (style.isPresent()) {
