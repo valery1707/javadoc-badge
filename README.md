@@ -5,7 +5,7 @@ Simple Javadoc badge that automatically detect current artifact version, deploye
 
 ##### API
 
-URL: `http://javadocbadge-valery1707.rhcloud.com/doc/${groupId}/${artifactId}/badge.${ext}`
+URL: `http://javadoc-emblem.rhcloud.com/doc/${groupId}/${artifactId}/badge.${ext}`
 * `groupId` and `artifactId` describe maven artifact information
 * `ext` - supported extensions from [Shields.io](http://shields.io/#styles), eg `svg` or `png`
 
@@ -18,9 +18,9 @@ Also exists some optional params:
 
 ##### Examples
 
-* Spring Core: [![Javadoc](http://javadocbadge-valery1707.rhcloud.com/doc/org.springframework/spring-core/badge.svg)](http://www.javadoc.io/doc/org.springframework/spring-core) `![Javadoc](http://javadocbadge-valery1707.rhcloud.com/doc/org.springframework/spring-core/badge.svg)`
-* Scala Library: [![Javadoc](http://javadocbadge-valery1707.rhcloud.com/doc/org.scala-lang/scala-library/badge.svg)](http://www.javadoc.io/doc/org.scala-lang/scala-library) `![Javadoc](http://javadocbadge-valery1707.rhcloud.com/doc/org.scala-lang/scala-library/badge.svg)`
-* Lamma: [![Javadoc](http://javadocbadge-valery1707.rhcloud.com/doc/io.lamma/lamma_2.11/badge.svg)](http://www.javadoc.io/doc/io.lamma/lamma_2.11) `![Javadoc](http://javadocbadge-valery1707.rhcloud.com/doc/io.lamma/lamma_2.11/badge.svg)`
+* Spring Core: [![Javadoc](http://javadoc-emblem.rhcloud.com/doc/org.springframework/spring-core/badge.svg)](http://www.javadoc.io/doc/org.springframework/spring-core) `![Javadoc](http://javadoc-emblem.rhcloud.com/doc/org.springframework/spring-core/badge.svg)`
+* Scala Library: [![Javadoc](http://javadoc-emblem.rhcloud.com/doc/org.scala-lang/scala-library/badge.svg)](http://www.javadoc.io/doc/org.scala-lang/scala-library) `![Javadoc](http://javadoc-emblem.rhcloud.com/doc/org.scala-lang/scala-library/badge.svg)`
+* Lamma: [![Javadoc](http://javadoc-emblem.rhcloud.com/doc/io.lamma/lamma_2.11/badge.svg)](http://www.javadoc.io/doc/io.lamma/lamma_2.11) `![Javadoc](http://javadoc-emblem.rhcloud.com/doc/io.lamma/lamma_2.11/badge.svg)`
 
 ##### Version providers
 
