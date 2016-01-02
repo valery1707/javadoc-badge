@@ -3,11 +3,13 @@ package name.valery1707.javadocBadge.version;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
 import com.github.benmanes.caffeine.cache.stats.CacheStats;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.time.Duration;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
 import java.util.Map.Entry;
@@ -17,6 +19,9 @@ import java.util.concurrent.TimeUnit;
 @Repository
 @Singleton
 public class VersionCache {
+	@Value("${cache.expireAfterWrite}")
+	private String expireAfterWrite;
+
 	@Inject
 	@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 	private List<VersionProvider> versionProviders;
@@ -25,8 +30,9 @@ public class VersionCache {
 
 	@PostConstruct
 	public void init() {
+		Duration expireAfterWrite = Duration.parse(this.expireAfterWrite);
 		versions = Caffeine.newBuilder()
-				.expireAfterWrite(2, TimeUnit.HOURS)//todo Configure
+				.expireAfterWrite(expireAfterWrite.toMinutes(), TimeUnit.MINUTES)
 				.maximumSize(10_000)
 				.recordStats()
 				.build(this::findActualVersion);//todo Use async
