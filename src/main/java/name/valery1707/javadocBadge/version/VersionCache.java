@@ -22,6 +22,9 @@ public class VersionCache {
 	@Value("${cache.expireAfterWrite}")
 	private String expireAfterWrite;
 
+	@Value("${cache.maximumSize}")
+	private int maximumSize;
+
 	@Inject
 	@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 	private List<VersionProvider> versionProviders;
@@ -33,7 +36,7 @@ public class VersionCache {
 		Duration expireAfterWrite = Duration.parse(this.expireAfterWrite);
 		versions = Caffeine.newBuilder()
 				.expireAfterWrite(expireAfterWrite.toMinutes(), TimeUnit.MINUTES)
-				.maximumSize(10_000)
+				.maximumSize(maximumSize)
 				.recordStats()
 				.build(this::findActualVersion);//todo Use async
 	}
