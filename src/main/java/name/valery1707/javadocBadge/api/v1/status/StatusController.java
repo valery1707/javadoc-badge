@@ -1,5 +1,6 @@
 package name.valery1707.javadocBadge.api.v1.status;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/status")
 public class StatusController {
 	@Inject
