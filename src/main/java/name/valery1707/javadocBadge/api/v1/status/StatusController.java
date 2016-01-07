@@ -1,4 +1,4 @@
-package name.valery1707.javadocBadge.status;
+package name.valery1707.javadocBadge.api.v1.status;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/status")
+@RequestMapping("/api/v1/status")
 public class StatusController {
 	@Inject
 	private StatusRepository repository;

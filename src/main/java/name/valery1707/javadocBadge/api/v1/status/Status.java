@@ -1,4 +1,4 @@
-package name.valery1707.javadocBadge.status;
+package name.valery1707.javadocBadge.api.v1.status;
 
 import com.github.benmanes.caffeine.cache.stats.CacheStats;
 import com.google.gson.annotations.JsonAdapter;

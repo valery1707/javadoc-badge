@@ -1,4 +1,4 @@
-package name.valery1707.javadocBadge.status;
+package name.valery1707.javadocBadge.api.v1.status;
 
 import name.valery1707.javadocBadge.version.VersionCache;
 import org.slf4j.Logger;
