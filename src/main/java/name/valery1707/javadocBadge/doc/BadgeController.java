@@ -67,7 +67,7 @@ public class BadgeController {
 		UriComponentsBuilder shieldURIBuilder = ServletUriComponentsBuilder.fromHttpUrl(shieldsBaseURL);
 		shieldURIBuilder.path("{subject}-{version}-{color}.{ext}");
 		if (style.isPresent()) {
-			shieldURIBuilder.queryParam("style", style.orElse(null));
+			shieldURIBuilder.queryParam("style", style.get());
 		}
 		Map<String, String> params = new HashMap<>(4);
 		params.put("subject", badgePart(subject.orElse(badgeSubject)));
@@ -79,7 +79,7 @@ public class BadgeController {
 		CacheControl cacheControl = CacheControl.maxAge(cacheDuration.toMinutes(), TimeUnit.MINUTES)
 				.cachePublic();
 		return ResponseEntity.status(HttpStatus.TEMPORARY_REDIRECT)
-				.header("Location", shieldURI.toUriString())
+				.location(shieldURI.toUri())
 				.cacheControl(cacheControl)
 				.header(HttpHeaders.EXPIRES, ZonedDateTime.now(GMT).plus(cacheDuration).format(EXPIRES_FORMAT))
 				.body(null);
