@@ -22,21 +22,21 @@ public class StatusController {
 
 	@RequestMapping(value = "/version", method = RequestMethod.GET)
 	public String version() {
-		return repository.getStatus().getVersion();
+		return repository.getVersion();
 	}
 
 	@RequestMapping(value = "/uptime", method = RequestMethod.GET)
 	public String uptime() {
-		return repository.getStatus().getUptime().toString();
+		return repository.getUptime().toString();
 	}
 
 	@RequestMapping(value = "/cache", method = RequestMethod.GET)
 	public Map<String, Object> cache() {
-		return repository.getStatus().getCache();
+		return repository.getCache();
 	}
 
 	@RequestMapping(value = "/memory", method = RequestMethod.GET)
 	public Map<String, Long> memory() {
-		return repository.getStatus().getMemory();
+		return repository.getMemory();
 	}
 }

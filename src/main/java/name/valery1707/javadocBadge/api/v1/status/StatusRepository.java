@@ -1,5 +1,6 @@
 package name.valery1707.javadocBadge.api.v1.status;
 
+import com.github.benmanes.caffeine.cache.stats.CacheStats;
 import name.valery1707.javadocBadge.version.VersionCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,9 @@ import java.net.URL;
 import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.jar.Manifest;
 
 @Repository
@@ -53,7 +57,44 @@ public class StatusRepository {
 		}
 	}
 
+	public String getVersion() {
+		return version;
+	}
+
+	public Duration getUptime() {
+		return Duration.between(startAt, ZonedDateTime.now());
+	}
+
+	public Map<String, Object> getCache() {
+		CacheStats stats = versionCache.getStats();
+		Map<String, Object> cache = new TreeMap<>();
+		cache.put("averageLoadPenalty", stats.averageLoadPenalty());
+		cache.put("evictionCount", stats.evictionCount());
+		cache.put("hitCount", stats.hitCount());
+		cache.put("hitRate", stats.hitRate());
+		cache.put("loadCount", stats.loadCount());
+		cache.put("loadFailureCount", stats.loadFailureCount());
+		cache.put("loadFailureRate", stats.loadFailureRate());
+		cache.put("loadSuccessCount", stats.loadSuccessCount());
+		cache.put("missCount", stats.missCount());
+		cache.put("missRate", stats.missRate());
+		cache.put("requestCount", stats.requestCount());
+		cache.put("totalLoadTime", stats.totalLoadTime());
+		cache.put("estimatedSize", versionCache.estimatedSize());
+		return cache;
+	}
+
+	public Map<String, Long> getMemory() {
+		Runtime runtime = Runtime.getRuntime();
+		Map<String, Long> memory = new HashMap<>(4);
+		memory.put("total", runtime.totalMemory());
+		memory.put("free", runtime.freeMemory());
+		memory.put("max", runtime.maxMemory());
+		memory.put("used", runtime.totalMemory() - runtime.freeMemory());
+		return memory;
+	}
+
 	public Status getStatus() {
-		return new Status(version, Duration.between(startAt, ZonedDateTime.now()), versionCache.getStats(), versionCache.estimatedSize());
+		return new Status(getVersion(), getUptime(), getCache(), getMemory());
 	}
 }
