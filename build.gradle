@@ -46,7 +46,14 @@ dependencies {
 
     //Servlet container
     compile 'javax.servlet:javax.servlet-api:3.1.0'
-    runtime 'org.eclipse.jetty:jetty-webapp:9.3.6.v20151106'
+    runtime 'org.eclipse.jetty:jetty-webapp:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-servlet:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-xml:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-util:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-security:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-http:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-io:9.3.7.v20160115'
+    runtime 'org.eclipse.jetty:jetty-server:9.3.7.v20160115'
 
     //Caching library
     compile 'com.github.ben-manes.caffeine:caffeine:2.0.3'
