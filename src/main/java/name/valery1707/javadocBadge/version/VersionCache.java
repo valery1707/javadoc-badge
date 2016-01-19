@@ -20,7 +20,8 @@ import java.util.concurrent.TimeUnit;
 @Singleton
 public class VersionCache {
 	@Value("${cache.expireAfterWrite}")
-	private String expireAfterWrite;
+	private String expireAfterWriteRaw;
+	private Duration expireAfterWrite;
 
 	@Value("${cache.maximumSize}")
 	private int maximumSize;
@@ -33,7 +34,7 @@ public class VersionCache {
 
 	@PostConstruct
 	public void init() {
-		Duration expireAfterWrite = Duration.parse(this.expireAfterWrite);
+		expireAfterWrite = Duration.parse(this.expireAfterWriteRaw);
 		versions = Caffeine.newBuilder()
 				.expireAfterWrite(expireAfterWrite.toMinutes(), TimeUnit.MINUTES)
 				.maximumSize(maximumSize)
@@ -59,5 +60,9 @@ public class VersionCache {
 
 	public long estimatedSize() {
 		return versions.estimatedSize();
+	}
+
+	public Duration getExpireAfterWrite() {
+		return expireAfterWrite;
 	}
 }

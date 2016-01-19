@@ -2,6 +2,8 @@ package name.valery1707.javadocBadge.doc;
 
 import name.valery1707.javadocBadge.version.VersionCache;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,13 +16,21 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.inject.Inject;
+import java.time.Duration;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping("doc")
 public class BadgeController {
+	public static final ZoneId GMT = ZoneId.of("GMT");
+	public static final DateTimeFormatter EXPIRES_FORMAT = DateTimeFormatter.RFC_1123_DATE_TIME;
+
 	@Value("${badge.shieldsURL}")
 	private String shieldsBaseURL;
 
@@ -65,8 +75,13 @@ public class BadgeController {
 		params.put("color", badgePart(color.orElse(badgeColor)));
 		params.put("ext", ext);
 		UriComponents shieldURI = shieldURIBuilder.build().expand(params);
+		Duration cacheDuration = versionCache.getExpireAfterWrite().dividedBy(2);
+		CacheControl cacheControl = CacheControl.maxAge(cacheDuration.toMinutes(), TimeUnit.MINUTES)
+				.cachePublic();
 		return ResponseEntity.status(HttpStatus.TEMPORARY_REDIRECT)
 				.header("Location", shieldURI.toUriString())
+				.cacheControl(cacheControl)
+				.header(HttpHeaders.EXPIRES, ZonedDateTime.now(GMT).plus(cacheDuration).format(EXPIRES_FORMAT))
 				.body(null);
 	}
 
