@@ -2,6 +2,8 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/5680e5fdeb4f47003c000271/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5680e5fdeb4f47003c000271)
 
 [![Stories in Ready](https://badge.waffle.io/valery1707/javadoc-badge.png?label=ready&title=Ready)](https://waffle.io/valery1707/javadoc-badge)
+[![Issue Stats](http://issuestats.com/github/valery1707/javadoc-badge/badge/pr?style=flat)](http://issuestats.com/github/valery1707/javadoc-badge)
+[![Issue Stats](http://issuestats.com/github/valery1707/javadoc-badge/badge/issue?style=flat)](http://issuestats.com/github/valery1707/javadoc-badge)
 
 Simple Javadoc badge that automatically detect current artifact version, deployed to [Maven Central](https://search.maven.org/) and create badge showing that version with [Shields.io](http://shields.io/).
 
