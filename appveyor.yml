@@ -13,7 +13,7 @@ os: Windows Server 2012
 install:
   # prepend Java entry, remove Ruby entry (C:\Ruby193\bin;) from PATH
   - SET PATH=%JAVA_HOME%\bin;%PATH:C:\Ruby193\bin;=%
-  - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
+  - cmd: SET JAVA_OPTS=-Xmx4g
   - cmd: java -version
   - ./gradlew --version
 build_script:
