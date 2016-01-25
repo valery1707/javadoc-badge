@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/valery1707/javadoc-badge.svg)](https://travis-ci.org/valery1707/javadoc-badge)
+[![Build status](https://ci.appveyor.com/api/projects/status/v1yc9qteeo7j0hiu/branch/master?svg=true)](https://ci.appveyor.com/project/valery1707/javadoc-badge-4j9lx/branch/master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5680e5fdeb4f47003c000271/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5680e5fdeb4f47003c000271)
 
 [![Stories in Ready](https://badge.waffle.io/valery1707/javadoc-badge.png?label=ready&title=Ready)](https://waffle.io/valery1707/javadoc-badge)
