@@ -51,7 +51,7 @@ dependencies {
     runtime 'org.eclipse.jetty:jetty-webapp:9.3.7.v20160115'
 
     //Caching library
-    compile 'com.github.ben-manes.caffeine:caffeine:2.0.3'
+    compile 'com.github.ben-manes.caffeine:caffeine:2.1.0'
 
     //HTTP client
     compile 'com.squareup.okhttp:okhttp:2.7.2'
