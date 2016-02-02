@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/valery1707/javadoc-badge.svg)](https://travis-ci.org/valery1707/javadoc-badge)
 [![Build status](https://ci.appveyor.com/api/projects/status/adjgn8p0c3r5f6k1/branch/master?svg=true)](https://ci.appveyor.com/project/valery1707/javadoc-badge/branch/master)
 [![Build status](https://codeship.com/projects/8bf6b500-aba3-0133-025d-2a6aaeef6a7e/status?branch=master)](https://codeship.com/projects/131399)
+[![Build status](https://circleci.com/gh/valery1707/javadoc-badge.svg?style=svg)](https://circleci.com/gh/valery1707/javadoc-badge)
 [![Dependency Status](https://www.versioneye.com/user/projects/5680e5fdeb4f47003c000271/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5680e5fdeb4f47003c000271)
 
 [![Stories in Ready](https://badge.waffle.io/valery1707/javadoc-badge.png?label=ready&title=Ready)](https://waffle.io/valery1707/javadoc-badge)
