@@ -9,6 +9,8 @@
 [![Issue Stats](http://issuestats.com/github/valery1707/javadoc-badge/badge/pr?style=flat)](http://issuestats.com/github/valery1707/javadoc-badge)
 [![Issue Stats](http://issuestats.com/github/valery1707/javadoc-badge/badge/issue?style=flat)](http://issuestats.com/github/valery1707/javadoc-badge)
 
+[![GitHub tag](https://img.shields.io/github/tag/valery1707/javadoc-badge.svg)](https://github.com/valery1707/javadoc-badge/releases)
+
 Simple Javadoc badge that automatically detect current artifact version, deployed to [Maven Central](https://search.maven.org/) and create badge showing that version with [Shields.io](http://shields.io/).
 
 ##### API
