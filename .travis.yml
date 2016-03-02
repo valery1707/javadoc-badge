@@ -2,3 +2,6 @@ language: java
 
 jdk:
   - oraclejdk8
+
+after_success:
+  - ./gradlew -Pversioneye.projectid=${VERSION_EYE__PROJECT_ID} -Pversioneye.api_key=${VERSION_EYE__API_KEY} versionEyeUpdate

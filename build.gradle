@@ -29,6 +29,13 @@ apply plugin: 'spring-boot'
 //http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-customize-dependency-versions
 ext['jetty.version'] = '9.3.7.v20160115'
 
+buildscript {
+	dependencies {
+		classpath 'org.standardout:gradle-versioneye-plugin:1.2.0'
+	}
+}
+apply plugin: 'org.standardout.versioneye'
+
 dependencies {
     //Logging
     compile 'org.slf4j:slf4j-api:1.7.16'
