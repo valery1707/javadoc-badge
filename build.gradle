@@ -40,7 +40,7 @@ dependencies {
     //Logging
     compile 'org.slf4j:slf4j-api:1.7.18'
     runtime 'org.slf4j:jcl-over-slf4j:1.7.18'
-    runtime 'ch.qos.logback:logback-classic:1.1.5'
+    runtime 'ch.qos.logback:logback-classic:1.1.6'
 
     //Spring
     compile "org.springframework:spring-context:4.2.5.RELEASE"
