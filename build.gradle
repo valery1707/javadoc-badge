@@ -9,7 +9,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
     }
 }
 
@@ -47,8 +47,8 @@ dependencies {
     compile "org.springframework:spring-web:4.2.5.RELEASE"
     //todo Can remove mvc-support?
     compile "org.springframework:spring-webmvc:4.2.5.RELEASE"
-    compile "org.springframework.boot:spring-boot:1.3.3.RELEASE"
-    compile "org.springframework.boot:spring-boot-autoconfigure:1.3.3.RELEASE"
+    compile "org.springframework.boot:spring-boot:1.3.5.RELEASE"
+    compile "org.springframework.boot:spring-boot-autoconfigure:1.3.5.RELEASE"
 
     //JSON parse library
     compile 'com.google.code.gson:gson:2.6.2'
