@@ -27,7 +27,7 @@ jar {
 
 apply plugin: 'spring-boot'
 //http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-customize-dependency-versions
-ext['jetty.version'] = '9.3.8.v20160314'
+ext['jetty.version'] = '9.3.9.v20160517'
 
 buildscript {
 	dependencies {
@@ -55,7 +55,7 @@ dependencies {
 
     //Servlet container
     compile 'javax.servlet:javax.servlet-api:3.1.0'
-    runtime 'org.eclipse.jetty:jetty-webapp:9.3.8.v20160314'
+    runtime 'org.eclipse.jetty:jetty-webapp:9.3.9.v20160517'
 
     //Caching library
     compile 'com.github.ben-manes.caffeine:caffeine:2.3.0'
