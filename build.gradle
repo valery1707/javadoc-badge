@@ -61,7 +61,7 @@ dependencies {
     compile 'com.github.ben-manes.caffeine:caffeine:2.3.0'
 
     //HTTP client
-    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
 
     //Useful annotations
     compile 'javax.inject:javax.inject:1'
